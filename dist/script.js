@@ -292,7 +292,7 @@ const resizeWindow = () => {
 const render = () => {
   const time = clock.getDelta();
   points.render(renderer, time);
-  renderer.setClearColor( 0x000000, 0.1 );
+  renderer.setClearColor( 0x000000, 0.2 );
   renderer.render(scene, camera);
 };
 const renderLoop = () => {
