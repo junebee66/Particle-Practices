@@ -258,6 +258,7 @@ const debounce = function (callback, duration) {
 const canvas = document.getElementById('canvas-webgl');
 const renderer = new THREE.WebGLRenderer({
   antialias: false,
+  alpha: true,
   canvas: canvas });
 
 const scene = new THREE.Scene();
