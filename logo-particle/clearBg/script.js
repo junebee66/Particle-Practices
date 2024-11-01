@@ -70,7 +70,7 @@
 				// load a resource
 				loader.load(
 					// resource URL
-					'https://cdn.discordapp.com/attachments/1160321765717840012/1181398319071768657/text_only.png?ex=6580e9ec&is=656e74ec&hm=8e8c62c48c97f7d3bc50c601e0fc61da6add7d61fa3cc2774df71148a6b54cda&',
+					'https://miro.medium.com/v2/resize:fit:586/format:webp/1*WRF-_5miaB1HHT5PRuXw9Q.png',
 
 					// onLoad callback
 					function ( texture ) {
