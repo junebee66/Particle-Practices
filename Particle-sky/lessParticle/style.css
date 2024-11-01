@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css?family=Homenaje");
+.p-canvas-webgl {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+}
+
+.p-summary {
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  z-index: 2;
+  color: #fff;
+  font-family: "Homenaje", sans-serif;
+}
+.p-summary h1 {
+  font-weight: 400;
+  letter-spacing: 0.2em;
+}
+.p-summary p {
+  letter-spacing: 0.2em;
+}
+.p-summary a {
+  color: #fff;
+}
