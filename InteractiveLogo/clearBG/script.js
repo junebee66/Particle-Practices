@@ -13,6 +13,12 @@ nextParticle.maxWidth = nextParticle.size;
 nextParticle.maxHeight = nextParticle.size;
 nextParticle.colorArr = [255, 255, 255, 255];
 
+// Add 3D settings
+nextParticle.threeDimensional = true; // Enable 3D mode
+nextParticle.depth = 50; // Adjust depth for 3D effect
+nextParticle.layerCount = 4; // Add more layers for better 3D effect
+nextParticle.layerDistance = 4; // Distance between layers
+
 var redraw = function() {
   nextParticle.initPosition = "none";
   nextParticle.initDirection = "none";
@@ -40,3 +46,37 @@ var redraw = function() {
 //   nextParticle.height = window.innerHeight;
 //   redraw();
 // }, true);
+
+// Add mouse movement handler for 3D perspective
+document.addEventListener('mousemove', function(e) {
+  // Calculate mouse position relative to center of screen
+  var mouseX = (e.clientX - window.innerWidth / 2) / window.innerWidth;
+  var mouseY = (e.clientY - window.innerHeight / 2) / window.innerHeight;
+  
+  // Apply rotation based on mouse position
+  if (nextParticle.vScene) {
+    nextParticle.vScene.rotation.y = mouseX * 0.5; // Horizontal rotation
+    nextParticle.vScene.rotation.x = mouseY * 0.5; // Vertical rotation
+  }
+  
+  // Apply perspective shift
+  if (nextParticle.camera) {
+    nextParticle.camera.position.x = mouseX * 100;
+    nextParticle.camera.position.y = -mouseY * 100;
+    nextParticle.camera.lookAt(0, 0, 0);
+  }
+});
+
+// Optional: Add smooth reset when mouse leaves window
+document.addEventListener('mouseleave', function() {
+  if (nextParticle.vScene) {
+    nextParticle.vScene.rotation.y = 0;
+    nextParticle.vScene.rotation.x = 0;
+  }
+  if (nextParticle.camera) {
+    nextParticle.camera.position.x = 0;
+    nextParticle.camera.position.y = 0;
+    nextParticle.camera.position.z = 1000;
+    nextParticle.camera.lookAt(0, 0, 0);
+  }
+});
